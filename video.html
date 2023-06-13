@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Video</title>
+</head>
+
+<body>
+
+    <h1 id="lol">Video do Youtube</h1>
+    <p id="gato">Aqui será carregado um video do youtube!</p>
+    <iframe id="yt" width="560" height="315" src="https://www.youtube.com/embed/HZxWhK2aDTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <script>
+        loadVideo();
+        function loadVideo() {
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTQ4NDFlYzk4YTUxMmI1YmM5Mzc5MzljNzE5ZWUwOSIsInN1YiI6IjY0NWQ3MDVlZmUwNzdhNWNhZGY4MDAxNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NErv3v2J7nHsSTDS-WY-5H4-H4bqd9zRmIUmVbExWGE'
+                }
+            };
+
+            fetch('https://api.themoviedb.org/3/movie/502356/videos?language=en-US', options)
+                .then(response => response.json())
+                .then((data) => { 
+                        var video = document.getElementById("yt");
+                        console.log("https://www.youtube.com/embed/" + data.results[21].key)
+                        video.src = "https://www.youtube.com/embed/" + data.results[21].key;                      
+                    
+                })
+                .catch(err => console.error(err));
+        }
+    </script>
+
+</body>
+
+</html>

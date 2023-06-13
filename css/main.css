@@ -332,3 +332,10 @@ button h1{
     }
 
 }
+.thumbs .btn{
+      display: flex;
+      align-content: flex-end;
+      background-color: black;
+      height: 2px;
+      position: absolute;
+}
