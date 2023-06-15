@@ -1,4 +1,4 @@
-const movieId = 0; // ID do filme que você deseja obter detalhes
+let movieId = 0; // ID do filme que você deseja obter detalhes
 const apiKey = '431d906c5c1aab1ce9d89f91aceb0dd7';
 
 
