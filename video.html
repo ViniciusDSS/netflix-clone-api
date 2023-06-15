@@ -9,10 +9,38 @@
 
     <h1 id="lol">Video do Youtube</h1>
     <p id="gato">Aqui será carregado um video do youtube!</p>
-    <iframe id="yt" width="560" height="315" src="https://www.youtube.com/embed/HZxWhK2aDTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="yt" width="560" height="315" src ="https://www.youtube.com/embed/" + data.results[21].key; title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+    <script src="app.js"></script>
     <script>
-        loadVideo();
+
+    let videoKey = index; // Substitua pela chave do vídeo desejado
+
+    let videoPlayer = document.getElementById('videoPlayer');
+    let videoUrl = `https://www.youtube.com/watch?v=${videoKey}`; // Construa a URL do vídeo
+
+        videoPlayer.src = videoUrl; // Atribua a URL do vídeo ao elemento de vídeo
+
+
+
+        for (let index = 350; index < 360; index++) {
+            fetch(`https://api.themoviedb.org/3/movie/${index}?api_key=${apiKey}`)
+             .then(response => response.json())
+            .then(data => {
+             // Processar a resposta da API
+             console.log(data);
+
+             movieId = index;
+    
+  })
+  .catch(error => {
+    // Tratar erros
+    console.error(error);
+  });
+
+
+
+            loadVideo();
         function loadVideo() {
             const options = {
                 method: 'GET',
@@ -22,7 +50,7 @@
                 }
             };
 
-            fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options)
+            fetch(`https://api.themoviedb.org/3/movie/${index}/videos?language=en-US`, options)
                 .then(response => response.json())
                 .then((data) => { 
                         var video = document.getElementById("yt");
@@ -32,8 +60,11 @@
                 })
                 .catch(err => console.error(err));
         }
+            
+        }
+        
     </script>
-    <script src="app.js"></script>
+    
 </body>
 
 </html>

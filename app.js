@@ -1,7 +1,7 @@
 let movieId = 0; // ID do filme que você deseja obter detalhes
 const apiKey = '431d906c5c1aab1ce9d89f91aceb0dd7';
 
-
+let file_path;
 const img_path = "//https://image.tmdb.org/t/p/w500";
 
 for (let index = 200; index < 210; index++) {
