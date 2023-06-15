@@ -22,7 +22,7 @@
                 }
             };
 
-            fetch('https://api.themoviedb.org/3/movie/502356/videos?language=en-US', options)
+            fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options)
                 .then(response => response.json())
                 .then((data) => { 
                         var video = document.getElementById("yt");
@@ -33,7 +33,7 @@
                 .catch(err => console.error(err));
         }
     </script>
-
+    <script src="app.js"></script>
 </body>
 
 </html>
