@@ -1,11 +1,11 @@
-let movieId = 0; // ID do filme que você deseja obter detalhes
+let movieId = 71712; // ID do filme que você deseja obter detalhes
 const apiKey = '431d906c5c1aab1ce9d89f91aceb0dd7';
 
 let file_path;
 const img_path = "//https://image.tmdb.org/t/p/w500";
 
-for (let index = 200; index < 210; index++) {
-  fetch(`https://api.themoviedb.org/3/movie/${index}?api_key=${apiKey}`)
+{
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`)
   .then(response => response.json())
   .then(data => {
     // Processar a resposta da API
@@ -27,7 +27,7 @@ for (let index = 200; index < 210; index++) {
     }
   };
   
-  fetch(`https://api.themoviedb.org/3/person/${index}/images`, options)
+  fetch(`https://api.themoviedb.org/3/person/${movieId}/images`, options)
     .then(response => response.json())
     .then(response => console.log(response))
     .catch(err => console.error(err));
